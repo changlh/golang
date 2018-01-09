@@ -1,7 +1,6 @@
 package main
 
 import (
-	//"io/ioutil"
 	"fmt"
 	"os"
 	"io/ioutil"
@@ -19,7 +18,7 @@ func readfile(filename string) {
 func main(){
 	//判断是否输入参数
 	if len(os.Args) == 1 {
-		fmt.Println("please input args")
+		fmt.Println("please input filename")
 		return
 	}
 	a := os.Args[1]
