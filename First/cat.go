@@ -7,6 +7,11 @@ import (
 	"os"
 	"io/ioutil"
 )
+
+//useage信息
+func useage(){
+	fmt.Println("useage:\n\t cat filename")
+}
 //读取文件内容
 func readfile(filename string) {
 	filecont , err := ioutil.ReadFile(filename)
@@ -15,10 +20,6 @@ func readfile(filename string) {
 		return
 	}
 	fmt.Println(string(filecont))
-}
-//useage信息
-func useage(){
-	fmt.Println("useage:\n\t cat filename")
 }
 
 func main(){
