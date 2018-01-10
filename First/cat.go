@@ -2,8 +2,6 @@ package main
 
 import (
 	"fmt"
-	//"os"
-	//"io/ioutil"
 	"os"
 	"io/ioutil"
 )
