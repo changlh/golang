@@ -14,6 +14,6 @@ func main() {
 
 	//可以替换为多个字符
 	s2 := "hello,world"
-	s =  "hhh" + s2[1:]
+	s = "hhh" + s2[1:]		//1:表示1到结尾
 	fmt.Println(s)
 }
