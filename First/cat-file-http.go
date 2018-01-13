@@ -4,9 +4,9 @@ import (
 	"fmt"
 	"io/ioutil"
 	"log"
-	//"net/http"
 	"os"
 	"strings"
+	"net/http"
 )
 
 func useage() {
@@ -24,30 +24,37 @@ func Printfile(name string) {
 	}
 	fmt.Println(string(filename))
 }
+
 //打印http_url内容
+//对网页内容打印处理有问题
 func Printhttp(url string) {
-	//urlcont, err := http.Get(url)
-	//if err != nil {
-	//	log.Fatal(err)
-	//}
-	//web, err := ioutil.ReadAll(urlcont.Body)
-	//if err != nil{
-	//	log.Fatal(err)
-	//}
-	//fmt.Println(string(web))
+	urlcont, err := http.Get(url)
+	if err != nil {
+		//log.Fatal(err)
+		fmt.Println(err)
+		return
+	}
+	web, err := ioutil.ReadAll(urlcont.Body)
+	if err != nil{
+		//log.Fatal(err)
+		fmt.Println(err)
+		return
+	}
+	fmt.Println(string(web))
 	return
 }
 
 func main() {
-	if len(os.Args) != 2 {
+	if len(os.Args) == 1 {
 		useage()
 		return
 	}
-	//后续会增加多个文件处理
-	filename := os.Args[1]
-	if strings.HasPrefix(filename, "http://") {
-		Printhttp(filename)
-	} else {
-		Printfile(filename)
+	for i := 1; i < len(os.Args); i++ {
+		filename := os.Args[i]
+		if strings.HasPrefix(filename, "http://") {
+			Printhttp(filename)
+		} else {
+			Printfile(filename)
+		}
 	}
 }
