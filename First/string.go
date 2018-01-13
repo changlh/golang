@@ -34,9 +34,11 @@ func main() {
 	//可以替换为多个字符
 	s2 := "hello,world"
 	s = "hhh" + s2[1:]		//1:表示1到结尾
-	//fmt.Println(s)
-	fmt.Println(reverse(s))
+	fmt.Println(s)
 
-	s3 := "你好，世界"
-	fmt.Println(reverse1(s3))
+	s3 := "hello,world"
+	fmt.Println(reverse(s3))
+
+	s4 := "你好，世界"
+	fmt.Println(reverse1(s4))
 }
